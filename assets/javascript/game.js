@@ -30,26 +30,37 @@ function startGame (){
 
         if (cpick === userPick){
             wins++;
+            console.log("userc",userPick == cpick);
+            alert("YOU GOT IT!");
+            document.getElementById("wins").textContent = wins;
             reset();
+            
         }
-        else { guessLeft--; 
+        else { guessLeft--; guessed.push(userPick);
+            document.getElementById("guessLeft").textContent = guessLeft;
+            document.getElementById("guessed").textContent =guessed;
+         
         }
-        if( userPick !== cpick){
-            guessed = userPick;
-        }
+           
+        console.log(guessed);
+            
+        
         if (guessLeft === counter){
             loses++;
+            alert("NOPE");
             reset();
         }
+        document.getElementById("loses").textContent = loses;
+
         console.log("wins", wins);
         console.log("loses", loses);
         console.log("guessleft", guessLeft);
-        console.log("guessed", guessed[""]);
+        // console.log("guessed", guessed[""]);
         console.log("cpick1", cpick);
     })
 
-    document.getElementById("wins").textContent = wins;
-    document.getElementById("loses").textContent = loses;
-    document.getElementById("guessLeft").textContent = guessLeft;
+    
+    
+
 }
 startGame();
